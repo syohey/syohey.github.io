@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>git on Shohei&#39;s Spotaneous Blog</title>
+    <link>https://syohey.github.io/tags/git/</link>
+    <description>Recent content in git on Shohei&#39;s Spotaneous Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 15 May 2020 22:04:01 -0700</lastBuildDate>
+    
+	<atom:link href="https://syohey.github.io/tags/git/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Git Basics</title>
+      <link>https://syohey.github.io/posts/git-basics/</link>
+      <pubDate>Fri, 15 May 2020 22:04:01 -0700</pubDate>
+      
+      <guid>https://syohey.github.io/posts/git-basics/</guid>
+      <description>$ git init to initialize a git repo.
+  $ git config --list to show your git config.
+  $ git add &amp;lt;file-name&amp;gt; to stage your file(s).
+  $ git commit -m &amp;quot;&amp;lt;your-comment&amp;gt;&amp;quot; to make a commit.
+  $ git push to save your work on your GitHub or GitLab or&amp;hellip;?
+    $ git status to show the current working repo&amp;rsquo;s status.</description>
+    </item>
+    
+  </channel>
+</rss>

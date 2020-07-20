@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css" />
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+  </script>
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png" />
+  
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description"
+    content="Basic bash usage." />
+  <title>Bash Basics | Shohei&#39;s Spotaneous Blog</title>
+  <link rel="stylesheet" href="/css/style.css" />
+  <link rel="stylesheet" href="/css/fonts.css" />
+   <header>
+
+  <nav>
+    <ul>
+      
+      
+      <li class="pull-left ">
+        <a href="https://syohey.github.io">~/shohei&#39;s spotaneous blog</a>
+      </li>
+      
+      
+      <li class="pull-left ">
+        <a href="/categories/">~/categories</a>
+      </li>
+      
+      
+      <li class="pull-left ">
+        <a href="/tags/">~/tags</a>
+      </li>
+      
+
+      
+      
+      <li class="pull-right">
+        <a href="/index.xml">~/subscribe</a>
+      </li>
+      
+
+    </ul>
+  </nav>
+</header>
+
+</head>
+
+<body>
+  <br />
+</body>
+
+</html>
+<div class="article-meta">
+<h1><span class="title">Bash Basics</span></h1>
+
+<h2 class="date">2020/05/18</h2>
+<p class="terms">
+  
+  
+  
+  
+  Tags: <a href="/tags/bash">bash</a> 
+  
+  
+</p>
+</div>
+
+
+<div class="content-wrapper">
+  <main>
+    <p>In this post, I would like to introduce the super basic bash usage.<br>
+The reason why it&rsquo;s super basic is that I myself don&rsquo;t know nothing much about bash, since I&rsquo;ve never really used it&hellip;</p>
+<p>Let&rsquo;s just get started.</p>
+<ol>
+<li><code>$ echo &lt;message&gt;</code> will print a message that you write. e.g. <code>$ echo hello world</code> will print hello world.</li>
+</ol>
+<p><br>
+    2. <code>$ printf &quot;&lt;message&gt;&quot;</code> will do the same thing as <code>$ echo &lt;message&gt;</code> but requires double quotation marks.<br>
+          e.g. <code>$ printf &quot;hello, world!\n&quot;</code> will print hello world.</p>
+<hr>
+<h6 id="user-input">User Input</h6>
+<p>    3. <code>$ read &lt;var-name&gt;</code> will prompt the user to input something and store it in <!-- raw HTML omitted -->.<br>
+          e.g. <code>$ read hello</code> will prompt you to type something. Suppose you type <code>konnichiwa</code>,<br>
+          then typing <code>$ echo $hello</code> or <code>$ printf &quot;$hello&quot;</code> should print konnichiwa.<br>
+<br>
+          <strong>Note</strong> that when you want to access to the data stored in variables, you need <code>$</code> in the front.<br>
+          For example,</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ read greeting
+hello
+$ echo $greeting
+hello
+</code></pre></div><hr>
+<h6 id="conditionals">Conditionals</h6>
+<p>    4.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ <span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> <span style="color:#e6db74">&#34;&lt;something1&gt;&#34;</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&lt;something2&gt;&#34;</span> <span style="color:#f92672">]</span>; <span style="color:#66d9ef">then</span>
+    echo &lt;message&gt;
+  <span style="color:#66d9ef">fi</span>
+</code></pre></div><p>This prints <code>&lt;message&gt;</code> if <code>&lt;something1&gt;</code> is equal to <code>&lt;something2&gt;</code>, which is <code>True</code>.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ <span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> <span style="color:#e6db74">&#34;&lt;something1&gt;&#34;</span> !<span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&lt;something2&gt;&#34;</span> <span style="color:#f92672">]</span>; <span style="color:#66d9ef">then</span>
+    echo &lt;message1&gt;
+  <span style="color:#66d9ef">else</span>
+    echo &lt;message2&gt;
+  <span style="color:#66d9ef">fi</span>
+</code></pre></div><p>This prints <code>&lt;message1&gt;</code> if <code>&lt;something1&gt;</code> is <strong>NOT</strong> equal to <code>&lt;somethign2&gt;</code>, which is <code>False</code>.<br>
+Otherwise, prints <code>&lt;message2&gt;</code>.<br>
+Also, you can simply add as many <code>elif []; then</code> as you want if you have <strong>multiple</strong> conditions.<br>
+Also, <code>and</code> operator =&gt; <code>&amp;&amp;</code>, and <code>or</code> operator =&gt; <code>||</code>.<br>
+So for example,</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ <span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> ... <span style="color:#f92672">]</span> <span style="color:#f92672">||</span> <span style="color:#f92672">[</span> ... <span style="color:#f92672">]</span>; <span style="color:#66d9ef">then</span>
+    echo &lt;...&gt;
+  <span style="color:#66d9ef">fi</span>
+</code></pre></div><hr>
+<p>That&rsquo;s about everything I know so far. There is still more to know&mdash;loops, functions, etc.<br>
+But for now, this suffices my need so&hellip; I might post more information as I learn so stay tuned. 😄</p>
+
+    <a href="/"> >> Home</a>
+  </main>
+</div>
+    <footer>
+      
+<script>
+(function() {
+  function center_el(tagName) {
+    var tags = document.getElementsByTagName(tagName), i, tag;
+    for (i = 0; i < tags.length; i++) {
+      tag = tags[i];
+      var parent = tag.parentElement;
+      
+      if (parent.childNodes.length === 1) {
+        
+        if (parent.nodeName === 'A') {
+          parent = parent.parentElement;
+          if (parent.childNodes.length != 1) continue;
+        }
+        if (parent.nodeName === 'P') parent.style.textAlign = 'center';
+      }
+    }
+  }
+  var tagNames = ['img', 'embed', 'object'];
+  for (var i = 0; i < tagNames.length; i++) {
+    center_el(tagNames[i]);
+  }
+})();
+</script>
+
+      
+      <hr/>
+      <a href="https://github.com/syohey">GitHub</a> | <a href="https://keybase.io">Keybase</a>
+      
+    </footer>
+  </body>
+</html>
+

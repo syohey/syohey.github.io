@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>https://syohey.github.io/tags/bash/</loc>
+    <lastmod>2020-05-18T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://syohey.github.io/posts/bash-basics/</loc>
+    <lastmod>2020-05-18T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://syohey.github.io/posts/</loc>
+    <lastmod>2020-05-18T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://syohey.github.io/</loc>
+    <lastmod>2020-05-18T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://syohey.github.io/tags/</loc>
+    <lastmod>2020-05-18T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://syohey.github.io/tags/git/</loc>
+    <lastmod>2020-05-15T22:04:01-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://syohey.github.io/posts/git-basics/</loc>
+    <lastmod>2020-05-15T22:04:01-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://syohey.github.io/posts/hugo-quickstart/</loc>
+    <lastmod>2020-05-15T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://syohey.github.io/tags/hugo/</loc>
+    <lastmod>2020-05-15T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://syohey.github.io/tags/quickstart/</loc>
+    <lastmod>2020-05-15T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://syohey.github.io/categories/</loc>
+  </url>
+  
+</urlset>

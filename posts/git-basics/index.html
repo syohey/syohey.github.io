@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css" />
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+  </script>
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png" />
+  
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description"
+    content="Basic git usage." />
+  <title>Git Basics | Shohei&#39;s Spotaneous Blog</title>
+  <link rel="stylesheet" href="/css/style.css" />
+  <link rel="stylesheet" href="/css/fonts.css" />
+   <header>
+
+  <nav>
+    <ul>
+      
+      
+      <li class="pull-left ">
+        <a href="https://syohey.github.io">~/shohei&#39;s spotaneous blog</a>
+      </li>
+      
+      
+      <li class="pull-left ">
+        <a href="/categories/">~/categories</a>
+      </li>
+      
+      
+      <li class="pull-left ">
+        <a href="/tags/">~/tags</a>
+      </li>
+      
+
+      
+      
+      <li class="pull-right">
+        <a href="/index.xml">~/subscribe</a>
+      </li>
+      
+
+    </ul>
+  </nav>
+</header>
+
+</head>
+
+<body>
+  <br />
+</body>
+
+</html>
+<div class="article-meta">
+<h1><span class="title">Git Basics</span></h1>
+
+<h2 class="date">2020/05/15</h2>
+<p class="terms">
+  
+  
+  
+  
+  Tags: <a href="/tags/git">git</a> 
+  
+  
+</p>
+</div>
+
+
+<div class="content-wrapper">
+  <main>
+    <ol>
+<li>
+<p><code>$ git init</code> to initialize a git repo.</p>
+</li>
+<li>
+<p><code>$ git config --list</code> to show your git config.</p>
+</li>
+<li>
+<p><code>$ git add &lt;file-name&gt;</code> to stage your file(s).</p>
+</li>
+<li>
+<p><code>$ git commit -m &quot;&lt;your-comment&gt;&quot;</code> to make a commit.</p>
+</li>
+<li>
+<p><code>$ git push</code> to save your work on your GitHub or GitLab or&hellip;?</p>
+</li>
+</ol>
+<hr>
+<ol start="6">
+<li>
+<p><code>$ git status</code> to show the current working repo&rsquo;s status.</p>
+</li>
+<li>
+<p><code>$ git branch</code> to show what branches you have.</p>
+</li>
+<li>
+<p><code>$ git branch &lt;branch-name&gt;</code> to create a new branch.</p>
+</li>
+<li>
+<p><code>$ git checkout &lt;branch-name&gt;</code> to work on your branch.</p>
+</li>
+</ol>
+<hr>
+<ol start="10">
+<li>
+<p><code>$ git reset &lt;commit&gt; { --soft / --mixed / --hard }</code> (Choose amongst these three. If <code>--mixed</code>, you don&rsquo;t need to.) to reset your commit. Default is <code>--mixed</code>, so choose <code>--soft</code> or <code>--hard</code>. <code>--soft</code> resets the commit, but everything is still staged. <code>--mixed</code> resets the commit and also unstages everything. <code>--hard</code> resets the commit and discard all the change you made in your code.</p>
+</li>
+<li>
+<p><code>$ git checkout &lt;commit&gt;</code> &mdash; You can also checkout the previous commits.</p>
+</li>
+<li>
+<p><code>$ git checkout -- &lt;file-name&gt;</code> &mdash; This is especially useful when you accidentally deleted file becasue this command will restore it.</p>
+</li>
+<li>
+<p><code>$ git ls-files --deleted</code> to show accidentally/intentionally deleted files.</p>
+</li>
+</ol>
+<p><br>
+<em><strong>In case you have already also accidentally commited with deleted files, these commands will save you??</strong></em></p>
+<ol start="14">
+<li>
+<p><code>$ git rev-list -n 1 HEAD -- &lt;file&gt;</code></p>
+</li>
+<li>
+<p><code>$ git checkout &lt;commit&gt;^ -- &lt;file&gt;</code></p>
+</li>
+<li>
+<p><code>$ git log --diff-filter=D --summary</code></p>
+</li>
+</ol>
+<hr>
+<h3 id="update-1-----may-26-2020-tuesday">Update 1 &mdash; May 26, 2020 Tuesday</h3>
+<ol start="17">
+<li>
+<p><code>$ git branch -m &lt;new-branch-name&gt;</code> to modify the branch name.</p>
+<p>Note: This assumes you are currently on the branch you want to rename.</p>
+<p>Otherwise, <code>$ git branch -m &lt;old-branch-name&gt; &lt;new-branch-name&gt;</code></p>
+</li>
+<li>
+<p><code>$ git push -d &lt;branch-name&gt;</code> to delete remote branches.</p>
+</li>
+<li>
+<p>I am not sure if I did this right, but if you want to delete pushed commits(ask yourself if you really need to discard the whole thing permanently so badly), I run <code>$ git reset --hard &lt;commit-hash&gt;</code>, then <code>$ git push -f</code> to force push, because it might ask you to <code>$ git pull</code> first, which I didn&rsquo;t really quite get.</p>
+</li>
+</ol>
+<p>It&rsquo;s good if you don&rsquo;t ever have to, but I screw up all the time so I need to know it for myself&hellip; Haha.</p>
+<p><em><strong>Also</strong></em>,</p>
+<ol start="19">
+<li><code>$ find &lt;directory path&gt; -name &quot;.git&quot;</code> &mdash; This is a good trick to know. It shows all the git repos in your path.</li>
+</ol>
+<hr>
+<h3 id="update-2-----june-17-2020-wednesday">Update 2 &mdash; June 17, 2020 Wednesday</h3>
+<ol start="20">
+<li>
+<p><code>$ git --amend -m &quot;&lt;comment&gt;&quot;</code> to edit your comment to the commit.</p>
+</li>
+<li>
+<p><code>$ git stash save &quot;&lt;comment&gt;&quot;</code> to stash your commit.</p>
+</li>
+</ol>
+
+    <a href="/"> >> Home</a>
+  </main>
+</div>
+    <footer>
+      
+<script>
+(function() {
+  function center_el(tagName) {
+    var tags = document.getElementsByTagName(tagName), i, tag;
+    for (i = 0; i < tags.length; i++) {
+      tag = tags[i];
+      var parent = tag.parentElement;
+      
+      if (parent.childNodes.length === 1) {
+        
+        if (parent.nodeName === 'A') {
+          parent = parent.parentElement;
+          if (parent.childNodes.length != 1) continue;
+        }
+        if (parent.nodeName === 'P') parent.style.textAlign = 'center';
+      }
+    }
+  }
+  var tagNames = ['img', 'embed', 'object'];
+  for (var i = 0; i < tagNames.length; i++) {
+    center_el(tagNames[i]);
+  }
+})();
+</script>
+
+      
+      <hr/>
+      <a href="https://github.com/syohey">GitHub</a> | <a href="https://keybase.io">Keybase</a>
+      
+    </footer>
+  </body>
+</html>
+

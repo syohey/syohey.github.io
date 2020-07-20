@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>hugo on Shohei&#39;s Spotaneous Blog</title>
+    <link>https://syohey.github.io/tags/hugo/</link>
+    <description>Recent content in hugo on Shohei&#39;s Spotaneous Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 15 May 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://syohey.github.io/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>How to get started with Hugo</title>
+      <link>https://syohey.github.io/posts/hugo-quickstart/</link>
+      <pubDate>Fri, 15 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://syohey.github.io/posts/hugo-quickstart/</guid>
+      <description>I thought I wanted to leave myself a note on how to go about making a website with Hugo. Although the documentation explains it clearly enough, I still tend to take too much time getting it to work the way I expect&amp;hellip;
+So, yeah, I don&amp;rsquo;t want to have to repeat myself again and again learning how to set it up in the future, so here it is for future me and you.</description>
+    </item>
+    
+  </channel>
+</rss>
