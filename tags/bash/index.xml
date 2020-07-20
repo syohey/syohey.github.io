@@ -20,8 +20,7 @@
       <description>In this post, I would like to introduce the super basic bash usage.
 The reason why it&amp;rsquo;s super basic is that I myself don&amp;rsquo;t know nothing much about bash, since I&amp;rsquo;ve never really used it&amp;hellip;
 Let&amp;rsquo;s just get started.
- $ echo &amp;lt;message&amp;gt; will print a message that you write. e.g. $ echo hello world will print hello world.  
-2. $ printf &amp;quot;&amp;lt;message&amp;gt;&amp;quot; will do the same thing as $ echo &amp;lt;message&amp;gt; but requires double quotation marks.</description>
+ $ echo &amp;lt;message&amp;gt; will print a message that you write. e.g. $ echo hello world will print hello world.   2. $ printf &amp;quot;&amp;lt;message&amp;gt;&amp;quot; will do the same thing as $ echo &amp;lt;message&amp;gt; but requires double quotation marks.</description>
     </item>
     
   </channel>
