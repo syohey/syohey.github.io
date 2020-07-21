@@ -3,22 +3,27 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://syohey.github.io/posts/new-theme/</loc>
+    <lastmod>2020-07-20T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://syohey.github.io/posts/</loc>
+    <lastmod>2020-07-20T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://syohey.github.io/</loc>
+    <lastmod>2020-07-20T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://syohey.github.io/tags/bash/</loc>
     <lastmod>2020-05-18T00:00:00-07:00</lastmod>
   </url>
   
   <url>
     <loc>https://syohey.github.io/posts/bash-basics/</loc>
-    <lastmod>2020-05-18T00:00:00-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://syohey.github.io/posts/</loc>
-    <lastmod>2020-05-18T00:00:00-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://syohey.github.io/</loc>
     <lastmod>2020-05-18T00:00:00-07:00</lastmod>
   </url>
   

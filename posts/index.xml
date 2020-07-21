@@ -6,10 +6,20 @@
     <description>Recent content in Posts on Shohei&#39;s Spontaneous Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 18 May 2020 00:00:00 -0700</lastBuildDate>
+    <lastBuildDate>Mon, 20 Jul 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://syohey.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>New Theme</title>
+      <link>https://syohey.github.io/posts/new-theme/</link>
+      <pubDate>Mon, 20 Jul 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://syohey.github.io/posts/new-theme/</guid>
+      <description>I have changed the hugo theme again&amp;hellip; I just wanted something super simple that I don&amp;rsquo;t get tired of for a while&amp;hellip; I think I finally found it!
+I am excited about making more blog posts on the things I want to master by hopefully November! 😆</description>
+    </item>
     
     <item>
       <title>Bash Basics</title>
