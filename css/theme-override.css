@@ -207,6 +207,12 @@ code {
   font-size: 0.85rem;
 }
 
+pre > code {
+  font-family: var(--mono-fonts);
+  font-size: 0.7rem;
+  line-height: 1.3;
+}
+
 header {
   /* background-color: #0A369D; */
   font-family: var(--mono-fonts);
