@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css" />
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+  </script>
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png" />
+  
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description"
+    content="" />
+  <title>Data Structures: Doubly Linked Lists | Shohei&#39;s Spontaneous Blog</title>
+  <link rel="stylesheet" href="/css/style.css" />
+  <link rel="stylesheet" href="/css/fonts.css" />
+  <link rel="stylesheet" href="https://syohey.github.io/css/theme-override.css" /> <header>
+
+  <nav>
+    <ul>
+      
+      
+      <li class="pull-left ">
+        <a href="https://syohey.github.io">~/home</a>
+      </li>
+      
+
+      
+      
+      <li class="pull-right">
+        <a href="/index.xml">~/subscribe</a>
+      </li>
+      
+
+    </ul>
+  </nav>
+</header>
+</head>
+
+<body>
+  <br />
+</body>
+
+</html>
+<div class="article-meta">
+  <h1><span class="title">Data Structures: Doubly Linked Lists</span></h1>
+  
+  <h2 class="date">2020/07/24</h2>
+  
+</div>
+
+
+<div class="content-wrapper">
+  <main>
+    <p>Doubly linked lists might be one of the useful data structures I like. Even though personally I lean more towards linked hash map, but I think they are similar in a way.</p>
+<p>To be honest, I have never even used linked hash map so I can&rsquo;t really say.</p>
+<p>Anyways, I happen to be utilizing a doubly linked list in my project right now, so I wanted to go over it before I forget how it works again.</p>
+<p>Basically, doubly linked lists have:</p>
+<ul>
+<li><strong>check if node has value</strong> method</li>
+<li><strong>remove</strong> method</li>
+<li><strong>remove node bindings</strong> method to help remove method out</li>
+<li><strong>insert before node</strong> method</li>
+<li><strong>insert after</strong> method</li>
+<li><strong>set head</strong> method</li>
+<li><strong>set tail</strong> method</li>
+<li><strong>insert at specific position</strong> method</li>
+</ul>
+<p>and&hellip; that&rsquo;s about it.</p>
+<p>So in total, we will need to write 8 methods, which isn&rsquo;t so bad.</p>
+<p>Let&rsquo;s dive right into it!</p>
+<p>Firstly, let us make a <code>Node</code> class.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-py" data-lang="py"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Node</span>:
+    <span style="color:#66d9ef">def</span> __init__(self, value):
+        self<span style="color:#f92672">.</span>value <span style="color:#f92672">=</span> value
+        self<span style="color:#f92672">.</span>prev <span style="color:#f92672">=</span> None
+        self<span style="color:#f92672">.</span>next <span style="color:#f92672">=</span> None
+</code></pre></div><p><em>Rust version coming soon&hellip;</em></p>
+<p>And, now let&rsquo;s also write an init method for our doubly linked list.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-py" data-lang="py"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">DoublyLinkedList</span>:
+    <span style="color:#66d9ef">def</span> __init__(self):
+        self<span style="color:#f92672">.</span>head <span style="color:#f92672">=</span> None
+        self<span style="color:#f92672">.</span>tail <span style="color:#f92672">=</span> None
+</code></pre></div><p>Ok, so now I would like to start with <strong>check if node has value</strong> method, which returns <code>True</code> if there is a value(data) or <code>False</code> if <code>null</code>.</p>
+<p>So inside <code>DoublyLinkedList</code> class, write</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-py" data-lang="py">    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">node_has_value</span>(self, value):
+        <span style="color:#75715e"># Set node to head.</span>
+        node <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>head
+        <span style="color:#75715e"># Iterate over each node to see if node has value.</span>
+        <span style="color:#66d9ef">while</span> node <span style="color:#f92672">is</span> <span style="color:#f92672">not</span> None <span style="color:#f92672">and</span> node<span style="color:#f92672">.</span>value <span style="color:#f92672">!=</span> value:
+            node <span style="color:#f92672">=</span> node<span style="color:#f92672">.</span>next
+        <span style="color:#75715e"># Should return `False` if there isn&#39;t.</span>
+        <span style="color:#75715e"># Should return `True` if there is.</span>
+        <span style="color:#66d9ef">return</span> node <span style="color:#f92672">is</span> <span style="color:#f92672">not</span> None
+</code></pre></div><p>Now, let&rsquo;s do a <strong>remove</strong> method.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-py" data-lang="py">    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">remove</span>(self, node):
+        <span style="color:#66d9ef">if</span> node <span style="color:#f92672">==</span> self<span style="color:#f92672">.</span>head:
+            self<span style="color:#f92672">.</span>head <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>head<span style="color:#f92672">.</span>next
+        <span style="color:#66d9ef">if</span> node <span style="color:#f92672">==</span> self<span style="color:#f92672">.</span>tail:
+            self<span style="color:#f92672">.</span>tail <span style="color:#f92672">==</span> self<span style="color:#f92672">.</span>tail<span style="color:#f92672">.</span>prev
+        self<span style="color:#f92672">.</span>remove_bindings(node)
+</code></pre></div><p>&hellip;which now leads us to writing a helper method to the <strong>remove</strong> method we just wrote.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-py" data-lang="py">    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">remove_bindings</span>(self, node):
+        <span style="color:#66d9ef">if</span> node<span style="color:#f92672">.</span>prev <span style="color:#f92672">is</span> <span style="color:#f92672">not</span> None:
+            node<span style="color:#f92672">.</span>prev<span style="color:#f92672">.</span>next <span style="color:#f92672">=</span> node<span style="color:#f92672">.</span>next
+        <span style="color:#66d9ef">if</span> node<span style="color:#f92672">.</span>next <span style="color:#f92672">is</span> <span style="color:#f92672">not</span> None:
+            node<span style="color:#f92672">.</span>next<span style="color:#f92672">.</span>prev <span style="color:#f92672">=</span> node<span style="color:#f92672">.</span>prev
+        node<span style="color:#f92672">.</span>prev <span style="color:#f92672">=</span> None
+        node<span style="color:#f92672">.</span>next <span style="color:#f92672">=</span> None
+</code></pre></div><p>And now, we are going to remove a node that has a value.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-py" data-lang="py">    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">remove_node_with_value</span>(self, value):
+        node <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>head
+        <span style="color:#66d9ef">while</span> node <span style="color:#f92672">is</span> <span style="color:#f92672">not</span> None:
+            node_to_remove <span style="color:#f92672">=</span> node
+            node <span style="color:#f92672">=</span> node<span style="color:#f92672">.</span>next
+            <span style="color:#66d9ef">if</span> node_to_remove<span style="color:#f92672">.</span>value <span style="color:#f92672">==</span> value:
+                self<span style="color:#f92672">.</span>remove(node_to_remove)
+</code></pre></div><p>Cool!</p>
+<p>Ok, so now&hellip; Let us write <strong>insert before</strong> method which takes two parameters &mdash; <code>node</code> to insert before and <code>node_to_insert</code>.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-py" data-lang="py">    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">insert_before</span>(self, node, node_to_insert):
+        <span style="color:#66d9ef">if</span> node_to_insert <span style="color:#f92672">==</span> self<span style="color:#f92672">.</span>head <span style="color:#f92672">and</span> node_to_insert <span style="color:#f92672">==</span> self<span style="color:#f92672">.</span>tail:
+            <span style="color:#66d9ef">return</span>
+        self<span style="color:#f92672">.</span>remove(node_to_insert)
+        node_to_insert<span style="color:#f92672">.</span>prev <span style="color:#f92672">=</span> node<span style="color:#f92672">.</span>prev
+        node_to_insert<span style="color:#f92672">.</span>next <span style="color:#f92672">=</span> node
+        <span style="color:#66d9ef">if</span> node<span style="color:#f92672">.</span>prev <span style="color:#f92672">is</span> None:
+            self<span style="color:#f92672">.</span>head <span style="color:#f92672">=</span> node_to_insert
+        <span style="color:#66d9ef">else</span>:
+            node<span style="color:#f92672">.</span>prev<span style="color:#f92672">.</span>next <span style="color:#f92672">=</span> node_to_insert
+        node<span style="color:#f92672">.</span>prev <span style="color:#f92672">=</span> node_to_insert
+</code></pre></div><p>Very similarly, <strong>insert after</strong> method will look likw&hellip;</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-py" data-lang="py">    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">insert_after</span>(self, node, node_to_insert):
+        <span style="color:#66d9ef">if</span> node_to_insert <span style="color:#f92672">==</span> self<span style="color:#f92672">.</span>head <span style="color:#f92672">and</span> node_to_insert <span style="color:#f92672">==</span> self<span style="color:#f92672">.</span>tail:
+            <span style="color:#66d9ef">return</span>
+        self<span style="color:#f92672">.</span>remove(node_to_insert)
+        node_to_insert<span style="color:#f92672">.</span>prev <span style="color:#f92672">=</span> node
+        node_to_insert<span style="color:#f92672">.</span>next <span style="color:#f92672">=</span> node<span style="color:#f92672">.</span>next
+        <span style="color:#66d9ef">if</span> node<span style="color:#f92672">.</span>next <span style="color:#f92672">is</span> None:
+            self<span style="color:#f92672">.</span>tail <span style="color:#f92672">=</span> node_to_insert
+        <span style="color:#66d9ef">else</span>:
+            node<span style="color:#f92672">.</span>next<span style="color:#f92672">.</span>prev <span style="color:#f92672">=</span> node_to_insert
+        node<span style="color:#f92672">.</span>next <span style="color:#f92672">=</span> node_to_insert
+</code></pre></div><p>Phew, almost there&hellip;</p>
+<p>We are going to write <strong>set head</strong>, <strong>set tail</strong>, and finally <strong>insert at position</strong> method, and we are done!</p>
+<p><strong><em>Set head</em></strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-py" data-lang="py">    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">set_head</span>(self, node):
+        <span style="color:#66d9ef">if</span> self<span style="color:#f92672">.</span>head <span style="color:#f92672">is</span> None:
+            self<span style="color:#f92672">.</span>head <span style="color:#f92672">=</span> node
+            self<span style="color:#f92672">.</span>tail <span style="color:#f92672">=</span> node
+            <span style="color:#66d9ef">return</span>
+        self<span style="color:#f92672">.</span>insert_before(self<span style="color:#f92672">.</span>head, node)
+</code></pre></div><p><strong><em>Set tail</em></strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-py" data-lang="py">    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">set_tail</span>(self, node):
+        <span style="color:#66d9ef">if</span> self<span style="color:#f92672">.</span>tail <span style="color:#f92672">is</span> None:
+            self<span style="color:#f92672">.</span>set_head(node)
+            <span style="color:#66d9ef">return</span>
+        self<span style="color:#f92672">.</span>insert_after(self<span style="color:#f92672">.</span>tail, node)
+</code></pre></div><p>Finally&hellip; <strong><em>Inert at position</em></strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-py" data-lang="py">    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">insert_at_postion</span>(self, position, node_to_insert):
+        <span style="color:#66d9ef">if</span> position <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span>:
+            self<span style="color:#f92672">.</span>set_head(node_to_insert)
+            <span style="color:#66d9ef">return</span>
+        node <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>head
+        current_position <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
+        <span style="color:#66d9ef">while</span> node <span style="color:#f92672">is</span> <span style="color:#f92672">not</span> None <span style="color:#f92672">and</span> current_position <span style="color:#f92672">!=</span> position:
+            node <span style="color:#f92672">=</span> node<span style="color:#f92672">.</span>next
+            current_position <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
+        <span style="color:#66d9ef">if</span> node <span style="color:#f92672">is</span> <span style="color:#f92672">not</span> None:
+            self<span style="color:#f92672">.</span>insert_before(node, node_to_insert)
+        <span style="color:#66d9ef">else</span>:
+            self<span style="color:#f92672">.</span>set_tail(node_to_insert)
+</code></pre></div><p>And&hellip;, THAT&rsquo;S IT!!</p>
+<p>I would like to add a unittest, but I will do it later.</p>
+<p>Thank you! 😁</p>
+<p><strong>Final code</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-py" data-lang="py"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Node</span>:
+    <span style="color:#66d9ef">def</span> __init__(self, value):
+        self<span style="color:#f92672">.</span>value <span style="color:#f92672">=</span> value
+        self<span style="color:#f92672">.</span>prev <span style="color:#f92672">=</span> None
+        self<span style="color:#f92672">.</span>next <span style="color:#f92672">=</span> None
+
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">DoublyLinkedList</span>:
+    <span style="color:#66d9ef">def</span> __init__(self):
+        self<span style="color:#f92672">.</span>head <span style="color:#f92672">=</span> None
+        self<span style="color:#f92672">.</span>tail <span style="color:#f92672">=</span> None
+
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">set_head</span>(self, node):
+        <span style="color:#66d9ef">if</span> self<span style="color:#f92672">.</span>head <span style="color:#f92672">is</span> None:
+            self<span style="color:#f92672">.</span>head <span style="color:#f92672">=</span> node
+            self<span style="color:#f92672">.</span>tail <span style="color:#f92672">=</span> node
+            <span style="color:#66d9ef">return</span>
+        self<span style="color:#f92672">.</span>insert_before(self<span style="color:#f92672">.</span>head, node)
+
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">set_tail</span>(self, node):
+        <span style="color:#66d9ef">if</span> self<span style="color:#f92672">.</span>tail <span style="color:#f92672">is</span> None:
+            self<span style="color:#f92672">.</span>set_head(node)
+            <span style="color:#66d9ef">return</span>
+        self<span style="color:#f92672">.</span>insert_after(self<span style="color:#f92672">.</span>tail, node)
+
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">insert_at_postion</span>(self, position, node_to_insert):
+        <span style="color:#66d9ef">if</span> position <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span>:
+            self<span style="color:#f92672">.</span>set_head(node_to_insert)
+            <span style="color:#66d9ef">return</span>
+        node <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>head
+        current_position <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
+        <span style="color:#66d9ef">while</span> node <span style="color:#f92672">is</span> <span style="color:#f92672">not</span> None <span style="color:#f92672">and</span> current_position <span style="color:#f92672">!=</span> position:
+            node <span style="color:#f92672">=</span> node<span style="color:#f92672">.</span>next
+            current_position <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
+        <span style="color:#66d9ef">if</span> node <span style="color:#f92672">is</span> <span style="color:#f92672">not</span> None:
+            self<span style="color:#f92672">.</span>insert_before(node, node_to_insert)
+        <span style="color:#66d9ef">else</span>:
+            self<span style="color:#f92672">.</span>set_tail(node_to_insert)
+
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">insert_before</span>(self, node, node_to_insert):
+        <span style="color:#66d9ef">if</span> node_to_insert <span style="color:#f92672">==</span> self<span style="color:#f92672">.</span>head <span style="color:#f92672">and</span> node_to_insert <span style="color:#f92672">==</span> self<span style="color:#f92672">.</span>tail:
+            <span style="color:#66d9ef">return</span>
+        self<span style="color:#f92672">.</span>remove(node_to_insert)
+        node_to_insert<span style="color:#f92672">.</span>prev <span style="color:#f92672">=</span> node<span style="color:#f92672">.</span>prev
+        node_to_insert<span style="color:#f92672">.</span>next <span style="color:#f92672">=</span> node
+        <span style="color:#66d9ef">if</span> node<span style="color:#f92672">.</span>prev <span style="color:#f92672">is</span> None:
+            self<span style="color:#f92672">.</span>head <span style="color:#f92672">=</span> node_to_insert
+        <span style="color:#66d9ef">else</span>:
+            node<span style="color:#f92672">.</span>prev<span style="color:#f92672">.</span>next <span style="color:#f92672">=</span> node_to_insert
+        node<span style="color:#f92672">.</span>prev <span style="color:#f92672">=</span> node_to_insert
+
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">insert_after</span>(self, node, node_to_insert):
+        <span style="color:#66d9ef">if</span> node_to_insert <span style="color:#f92672">==</span> self<span style="color:#f92672">.</span>head <span style="color:#f92672">and</span> node_to_insert <span style="color:#f92672">==</span> self<span style="color:#f92672">.</span>tail:
+            <span style="color:#66d9ef">return</span>
+        self<span style="color:#f92672">.</span>remove(node_to_insert)
+        node_to_insert<span style="color:#f92672">.</span>prev <span style="color:#f92672">=</span> node
+        node_to_insert<span style="color:#f92672">.</span>next <span style="color:#f92672">=</span> node<span style="color:#f92672">.</span>next
+        <span style="color:#66d9ef">if</span> node<span style="color:#f92672">.</span>next <span style="color:#f92672">is</span> None:
+            self<span style="color:#f92672">.</span>tail <span style="color:#f92672">=</span> node_to_insert
+        <span style="color:#66d9ef">else</span>:
+            node<span style="color:#f92672">.</span>next<span style="color:#f92672">.</span>prev <span style="color:#f92672">=</span> node_to_insert
+        node<span style="color:#f92672">.</span>next <span style="color:#f92672">=</span> node_to_insert
+
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">remove_node_with_value</span>(self, value):
+        node <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>head
+        <span style="color:#66d9ef">while</span> node <span style="color:#f92672">is</span> <span style="color:#f92672">not</span> None:
+            node_to_remove <span style="color:#f92672">=</span> node
+            node <span style="color:#f92672">=</span> node<span style="color:#f92672">.</span>next
+            <span style="color:#66d9ef">if</span> node_to_remove<span style="color:#f92672">.</span>value <span style="color:#f92672">==</span> value:
+                self<span style="color:#f92672">.</span>remove(node_to_remove)
+
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">remove</span>(self, node):
+        <span style="color:#66d9ef">if</span> node <span style="color:#f92672">==</span> self<span style="color:#f92672">.</span>head:
+            self<span style="color:#f92672">.</span>head <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>head<span style="color:#f92672">.</span>next
+        <span style="color:#66d9ef">if</span> node <span style="color:#f92672">==</span> self<span style="color:#f92672">.</span>tail:
+            self<span style="color:#f92672">.</span>tail <span style="color:#f92672">==</span> self<span style="color:#f92672">.</span>tail<span style="color:#f92672">.</span>prev
+        self<span style="color:#f92672">.</span>remove_bindings(node)
+
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">remove_bindings</span>(self, node):
+        <span style="color:#66d9ef">if</span> node<span style="color:#f92672">.</span>prev <span style="color:#f92672">is</span> <span style="color:#f92672">not</span> None:
+            node<span style="color:#f92672">.</span>prev<span style="color:#f92672">.</span>next <span style="color:#f92672">=</span> node<span style="color:#f92672">.</span>next
+        <span style="color:#66d9ef">if</span> node<span style="color:#f92672">.</span>next <span style="color:#f92672">is</span> <span style="color:#f92672">not</span> None:
+            node<span style="color:#f92672">.</span>next<span style="color:#f92672">.</span>prev <span style="color:#f92672">=</span> node<span style="color:#f92672">.</span>prev
+        node<span style="color:#f92672">.</span>prev <span style="color:#f92672">=</span> None
+        node<span style="color:#f92672">.</span>next <span style="color:#f92672">=</span> None
+
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">node_has_value</span>(self, value):
+        node <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>head
+        <span style="color:#66d9ef">while</span> node <span style="color:#f92672">is</span> <span style="color:#f92672">not</span> None <span style="color:#f92672">and</span> node<span style="color:#f92672">.</span>value <span style="color:#f92672">!=</span> value:
+            node <span style="color:#f92672">=</span> node<span style="color:#f92672">.</span>next
+        <span style="color:#66d9ef">return</span> node <span style="color:#f92672">is</span> <span style="color:#f92672">not</span> None
+</code></pre></div>
+    <a href="/"> >> Home</a>
+  </main>
+</div>
+    <footer>
+      
+<script>
+(function() {
+  function center_el(tagName) {
+    var tags = document.getElementsByTagName(tagName), i, tag;
+    for (i = 0; i < tags.length; i++) {
+      tag = tags[i];
+      var parent = tag.parentElement;
+      
+      if (parent.childNodes.length === 1) {
+        
+        if (parent.nodeName === 'A') {
+          parent = parent.parentElement;
+          if (parent.childNodes.length != 1) continue;
+        }
+        if (parent.nodeName === 'P') parent.style.textAlign = 'center';
+      }
+    }
+  }
+  var tagNames = ['img', 'embed', 'object'];
+  for (var i = 0; i < tagNames.length; i++) {
+    center_el(tagNames[i]);
+  }
+})();
+</script>
+
+      
+      <hr/>
+      <a href="https://github.com/syohey">GitHub</a> | <a href="https://keybase.io">Keybase</a>
+      
+    </footer>
+  </body>
+</html>

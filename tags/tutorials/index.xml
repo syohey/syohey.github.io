@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>tutorials on Shohei&#39;s Spontaneous Blog</title>
+    <link>https://syohey.github.io/tags/tutorials/</link>
+    <description>Recent content in tutorials on Shohei&#39;s Spontaneous Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 21 Jul 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://syohey.github.io/tags/tutorials/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Rust Tutorial: I/O</title>
+      <link>https://syohey.github.io/posts/rs-tutorial-io/</link>
+      <pubDate>Tue, 21 Jul 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://syohey.github.io/posts/rs-tutorial-io/</guid>
+      <description>Input/output in Rust is one of the things that confuses me, so I wanted to drop a quick tutorial on how to io in Rust.
+use std::io; fn main() { // To begin with, let us take an input value.  print!(&amp;#34;Type something... &amp;#34;); let mut input_1 = String::new(); // This will prompt a user to input something.  io::stdin().read_line(&amp;amp;mut input_1).ok().expect(&amp;#34;failed to read line.&amp;#34;); println!(&amp;#34;You typed {}.&amp;#34;, input_1); } </description>
+    </item>
+    
+  </channel>
+</rss>

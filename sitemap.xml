@@ -3,17 +3,57 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://syohey.github.io/posts/new-theme/</loc>
-    <lastmod>2020-07-20T00:00:00+00:00</lastmod>
+    <loc>https://syohey.github.io/posts/ds-dll/</loc>
+    <lastmod>2020-07-24T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://syohey.github.io/tags/data-strucutres/</loc>
+    <lastmod>2020-07-24T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://syohey.github.io/tags/doubly-linked-lists/</loc>
+    <lastmod>2020-07-24T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://syohey.github.io/tags/linked-lists/</loc>
+    <lastmod>2020-07-24T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://syohey.github.io/posts/</loc>
-    <lastmod>2020-07-20T00:00:00+00:00</lastmod>
+    <lastmod>2020-07-24T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://syohey.github.io/</loc>
+    <lastmod>2020-07-24T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://syohey.github.io/tags/</loc>
+    <lastmod>2020-07-24T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://syohey.github.io/tags/rust/</loc>
+    <lastmod>2020-07-21T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://syohey.github.io/posts/rs-tutorial-io/</loc>
+    <lastmod>2020-07-21T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://syohey.github.io/tags/tutorials/</loc>
+    <lastmod>2020-07-21T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://syohey.github.io/posts/new-theme/</loc>
     <lastmod>2020-07-20T00:00:00+00:00</lastmod>
   </url>
   
@@ -28,11 +68,6 @@
   </url>
   
   <url>
-    <loc>https://syohey.github.io/tags/</loc>
-    <lastmod>2020-05-18T00:00:00-07:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://syohey.github.io/tags/git/</loc>
     <lastmod>2020-05-15T22:04:01-07:00</lastmod>
   </url>
@@ -43,12 +78,12 @@
   </url>
   
   <url>
-    <loc>https://syohey.github.io/posts/hugo-quickstart/</loc>
+    <loc>https://syohey.github.io/tags/hugo/</loc>
     <lastmod>2020-05-15T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://syohey.github.io/tags/hugo/</loc>
+    <loc>https://syohey.github.io/posts/hugo-quickstart/</loc>
     <lastmod>2020-05-15T00:00:00+00:00</lastmod>
   </url>
   

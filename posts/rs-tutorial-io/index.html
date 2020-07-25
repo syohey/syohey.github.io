@@ -15,7 +15,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description"
     content="" />
-  <title>quickstart | Shohei&#39;s Spontaneous Blog</title>
+  <title>Rust Tutorial: I/O | Shohei&#39;s Spontaneous Blog</title>
   <link rel="stylesheet" href="/css/style.css" />
   <link rel="stylesheet" href="/css/fonts.css" />
   <link rel="stylesheet" href="https://syohey.github.io/css/theme-override.css" /> <header>
@@ -46,49 +46,29 @@
 </body>
 
 </html>
+<div class="article-meta">
+  <h1><span class="title">Rust Tutorial: I/O</span></h1>
+  
+  <h2 class="date">2020/07/21</h2>
+  
+</div>
+
 
 <div class="content-wrapper">
+  <main>
+    <p>Input/output in Rust is one of the things that confuses me, so I wanted to drop a quick tutorial on how to io in Rust.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-rs" data-lang="rs"><span style="color:#66d9ef">use</span> std::io;
 
-  <h1>quickstart</h1>
-  
-
-  
-
-  <ul>
-     
-     
-     
-     <li>
-       <span class="date">2020/07/24</span>
-       <a href="/posts/ds-dll/">Data Structures: Doubly Linked Lists</a>
-     </li>
-     
-     <li>
-       <span class="date">2020/07/21</span>
-       <a href="/posts/rs-tutorial-io/">Rust Tutorial: I/O</a>
-     </li>
-     
-     <li>
-       <span class="date">2020/07/20</span>
-       <a href="/posts/new-theme/">New Theme</a>
-     </li>
-     
-     <li>
-       <span class="date">2020/05/18</span>
-       <a href="/posts/bash-basics/">Bash Basics</a>
-     </li>
-     
-     <li>
-       <span class="date">2020/05/15</span>
-       <a href="/posts/git-basics/">Git Basics</a>
-     </li>
-     
-     <li>
-       <span class="date">2020/05/15</span>
-       <a href="/posts/hugo-quickstart/">Hugo Tutorial: Quickstart</a>
-     </li>
-     
-   </ul>
+<span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">main</span>() {
+    <span style="color:#75715e">// To begin with, let us take an input value.
+</span><span style="color:#75715e"></span>    print<span style="color:#f92672">!</span>(<span style="color:#e6db74">&#34;Type something... &#34;</span>);
+    <span style="color:#66d9ef">let</span> <span style="color:#66d9ef">mut</span> input_1 <span style="color:#f92672">=</span> String::new(); <span style="color:#75715e">// This will prompt a user to input something.
+</span><span style="color:#75715e"></span>    io::stdin().read_line(<span style="color:#f92672">&amp;</span><span style="color:#66d9ef">mut</span> input_1).ok().expect(<span style="color:#e6db74">&#34;failed to read line.&#34;</span>);
+    println<span style="color:#f92672">!</span>(<span style="color:#e6db74">&#34;You typed {}.&#34;</span>, input_1);
+}
+</code></pre></div>
+    <a href="/"> >> Home</a>
+  </main>
 </div>
     <footer>
       
@@ -124,4 +104,3 @@
     </footer>
   </body>
 </html>
-

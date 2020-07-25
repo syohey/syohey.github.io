@@ -6,10 +6,31 @@
     <description>Recent content on Shohei&#39;s Spontaneous Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 20 Jul 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 24 Jul 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://syohey.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Data Structures: Doubly Linked Lists</title>
+      <link>https://syohey.github.io/posts/ds-dll/</link>
+      <pubDate>Fri, 24 Jul 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://syohey.github.io/posts/ds-dll/</guid>
+      <description>Doubly linked lists might be one of the useful data structures I like. Even though personally I lean more towards linked hash map, but I think they are similar in a way.
+To be honest, I have never even used linked hash map so I can&amp;rsquo;t really say.
+Anyways, I happen to be utilizing a doubly linked list in my project right now, so I wanted to go over it before I forget how it works again.</description>
+    </item>
+    
+    <item>
+      <title>Rust Tutorial: I/O</title>
+      <link>https://syohey.github.io/posts/rs-tutorial-io/</link>
+      <pubDate>Tue, 21 Jul 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://syohey.github.io/posts/rs-tutorial-io/</guid>
+      <description>Input/output in Rust is one of the things that confuses me, so I wanted to drop a quick tutorial on how to io in Rust.
+use std::io; fn main() { // To begin with, let us take an input value.  print!(&amp;#34;Type something... &amp;#34;); let mut input_1 = String::new(); // This will prompt a user to input something.  io::stdin().read_line(&amp;amp;mut input_1).ok().expect(&amp;#34;failed to read line.&amp;#34;); println!(&amp;#34;You typed {}.&amp;#34;, input_1); } </description>
+    </item>
     
     <item>
       <title>New Theme</title>
@@ -48,7 +69,7 @@ Let&amp;rsquo;s just get started.
     </item>
     
     <item>
-      <title>How to get started with Hugo</title>
+      <title>Hugo Tutorial: Quickstart</title>
       <link>https://syohey.github.io/posts/hugo-quickstart/</link>
       <pubDate>Fri, 15 May 2020 00:00:00 +0000</pubDate>
       
